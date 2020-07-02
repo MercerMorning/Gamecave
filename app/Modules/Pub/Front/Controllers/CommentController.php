@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Modules\Pub\Front\Controllers;
+use App\Http\Controllers\Controller;
 
 use App\Comment;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -12,8 +14,8 @@ class CommentController extends Controller
     {
         $comment = new Comment();
         $comment->game_id = $id;
-        $comment->name = $request->name;
-        $comment->email = $request->email;
+        $comment->name = Auth::user()->name;
+        $comment->email = Auth::user()->email;
         $comment->message = $request->message;
         $comment->save();
         return back();

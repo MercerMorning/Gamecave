@@ -21,28 +21,6 @@ class GameController extends Controller
         return view('admin.games.edit', ['game' => $game]);
     }
 
-//    function add(GameRequest $request)
-//    {
-////        foreach (SITES as $key) {
-////            echo Parsing::price($key, urlName($request->name), $key['priceBlock']);
-////        }
-//        foreach (SITES as $key) {
-//            $site = new Site();
-//            $site->name = $key['name'];
-//            $site->description = $request->name;
-//            $site->price = clearPrice(Parsing::price($key, urlName($request->name), $key['priceBlock']));
-//            $site->save();
-//        }
-//        $game = new Game();
-//        $game->name = $request->name;
-//        $game->price = $request->price;
-//        $game->description = $request->description;
-//        $game->category = $request->category;
-//        $game->image = $request->file('image')->store('uploads', 'public');
-//        $game->save();
-//        return redirect()->route('admin.list');
-//    }
-
     function add(Request $request)
     {
         $sites = new SiteController();
@@ -60,17 +38,14 @@ class GameController extends Controller
     {
         $game = Game::query()->find($request->id);
         $game->name = $request->name;
-        $game->price = $request->price;
-        //$game->image = $request->file('image')->store('uploads', 'public');
-        //$game->description = $request->description;
         $game->category = $request->category;
         $game->save();
-        return redirect()->route('admin.list');
+        return redirect()->route('admin.index');
     }
 
     function delete(Request $request)
     {
         Game::destroy($request->id);
-        return redirect()->route('admin.list');
+        return redirect()->route('admin.index');
     }
 }

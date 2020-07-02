@@ -16,7 +16,7 @@ return [
                 ],
             'steampay' => [
                 'last_domen' => '.com',
-                'dir' => '/game/',
+                'path' => '/game/',
                 'price_block' => '.product__current-price'
             ],
         ]

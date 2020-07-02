@@ -35,22 +35,23 @@ class FrontController extends Controller
         $comments = Comment::all()->where('game_id', '=', $game);
         $game = Game::query()->find($game);
         $prices = Site::query()
-            ->where('description', '=', $game->name)
+            ->where('game_name', '=', $game->name)
             ->orderByDesc('created_at')
             ->limit(count(SITES))
             ->get();
         $table = Site::query()
-            ->where('description', '=', $game->name)
+            ->where('game_name', '=', $game->name)
             ->orderByDesc('created_at')
             ->get();
-        $nameForLink = urlName($game->name);
+        $nameForLink = getUrlName($game->name);
         return view('games.single', ['game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
     }
 
     public function link($siteName, $gameName)
     {
-        $site = SITES[$siteName];
-        return redirect(getFullAddress($site['name'] . $site['domen'] . $site['dir'], urlName($gameName)));
+        $sitesList = config('site.sites');
+        $siteAttr = $sitesList[$siteName];
+        return redirect(getFullAddress($siteName . $siteAttr['last_domen'] . $siteAttr['path'], getUrlName($gameName)));
     }
 
 //    public function main()

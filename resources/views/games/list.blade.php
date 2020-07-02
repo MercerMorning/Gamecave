@@ -21,7 +21,7 @@
                 <div class="mask">
                     <h2>{{ $game->name }}</h2>
                     <p>{{ $game->description }}</p>
-                    <a href="{{route('game.single', ['id' => $game->id])}}" class="info">buy</a>
+                    <a href="{{route('game.single', ['id' => $game->id])}}" class="info">подробнее</a>
                 </div>
             </div>
             @endforeach
