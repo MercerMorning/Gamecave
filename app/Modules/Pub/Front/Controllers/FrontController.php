@@ -13,6 +13,11 @@ use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
+    public function main()
+    {
+        return view('main');
+    }
+
     public function home()
     {
         return view('home');
@@ -26,6 +31,7 @@ class FrontController extends Controller
 
     public function single($game)
     {
+        //TODO: откорректировать
         $comments = Comment::all()->where('game_id', '=', $game);
         $game = Game::query()->find($game);
         $prices = Site::query()
@@ -38,7 +44,13 @@ class FrontController extends Controller
             ->orderByDesc('created_at')
             ->get();
         $nameForLink = urlName($game->name);
-        return view('gamecave.games.single', ['game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
+        return view('games.single', ['game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
+    }
+
+    public function link($siteName, $gameName)
+    {
+        $site = SITES[$siteName];
+        return redirect(getFullAddress($site['name'] . $site['domen'] . $site['dir'], urlName($gameName)));
     }
 
 //    public function main()
@@ -48,11 +60,4 @@ class FrontController extends Controller
 //
 
 //
-
-//
-//    public function link($siteName, $gameName)
-//    {
-//        $site = SITES[$siteName];
-//        return redirect(getFullAddress($site['name'] . $site['domen'] . $site['dir'], urlName($gameName)));
-//    }
 }

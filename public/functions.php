@@ -1,5 +1,5 @@
 <?php
-function urlName($name) {
+function getUrlName($name) {
     $name = mb_strtolower($name);
     $name = str_replace(' ', '-', $name);
     return $name;

@@ -29,7 +29,7 @@ class GameController extends Controller
             $site = new Site();
             $site->name = $key['name'];
             $site->description = $request->name;
-            $site->price = clearPrice(Parsing::price($key, urlName($request->name), $key['priceBlock']));
+            $site->price = clearPrice(Parsing::getPrice($key, urlName($request->name), $key['priceBlock']));
             $site->save();
         }
         $game = new Game();

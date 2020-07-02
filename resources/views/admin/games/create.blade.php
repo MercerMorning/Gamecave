@@ -4,7 +4,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Create game</div>
-                <form enctype="multipart/form-data" action="{{route('game.add')}}" method="post">
+                <form enctype="multipart/form-data" action="{{route('admin.game.add')}}" method="post">
                     {{ csrf_field() }}
                     <table class="table table-bordered">
                         <tr>
@@ -13,15 +13,6 @@
                                 <input type="text" name="name">
                                 @if ($errors->has('name'))
                                     <div class="alert alert-danger">{{$errors->first('name')}}</div>
-                                @endif
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>price</td>
-                            <td>
-                                <input type="text" name="price">
-                                @if ($errors->has('price'))
-                                    <div class="alert alert-danger">{{$errors->first('price')}}</div>
                                 @endif
                             </td>
                         </tr>

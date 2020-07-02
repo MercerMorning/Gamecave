@@ -112,5 +112,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="gamecave" />
     <orderEntry type="module" module-name="gamestore" />
+    <orderEntry type="module" module-name="Parsing" />
   </component>
 </module>

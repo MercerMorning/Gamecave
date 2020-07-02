@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Parsing/.idea/Parsing.iml" filepath="$PROJECT_DIR$/../Parsing/.idea/Parsing.iml" />
       <module fileurl="file://$PROJECT_DIR$/../gamecave/.idea/gamecave.iml" filepath="$PROJECT_DIR$/../gamecave/.idea/gamecave.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/gamecave7.iml" filepath="$PROJECT_DIR$/.idea/gamecave7.iml" />
       <module fileurl="file://$PROJECT_DIR$/../gamestore/.idea/gamestore.iml" filepath="$PROJECT_DIR$/../gamestore/.idea/gamestore.iml" />

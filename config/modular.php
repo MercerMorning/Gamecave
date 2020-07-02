@@ -8,13 +8,10 @@ return [
 
     'modules' => [
         'Admin' => [
-            'Faq',
+            'Back',
         ],
         'Pub' => [
-            'Front' =>
-                [
-                    'Auth',
-                ],
+            'Front',
         ]
     ]
 ];

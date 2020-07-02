@@ -67,7 +67,7 @@ Author URL: http://w3layouts.com
 <div class="header">
     <div class="container">
         <div class="logo">
-            <a href="{{ route('home') }}"><img src="images/logo.png" alt=""></a>
+            <a href="{{ route('main') }}"><img src="images/logo.png" alt=""></a>
         </div>
         <span class="menu"></span>
         <div class="navigation">
