@@ -2,6 +2,7 @@
 
 namespace App\Modules\Pub\Front\Controllers;
 
+use App\Category;
 use App\Comment;
 use App\Game;
 use App\Parsing;
@@ -23,10 +24,21 @@ class FrontController extends Controller
         return view('home');
     }
 
-    public function list()
+    public function gamesList()
     {
+        $categories = Category::all();
         $games = Game::all();
-        return view('games.list', ['games' => $games]);
+        return view('games.list', ['games' => $games, 'categories' => $categories]);
+    }
+
+    public function categoryList($id)
+    {
+        $categories = Category::all();
+        $category = Category::query()->find($id);
+        $games = Game::query()
+            ->where('category', '=', $category->name)
+            ->get();
+        return view('games.list', ['games' => $games, 'categories' => $categories]);
     }
 
     public function single($game)
@@ -37,11 +49,12 @@ class FrontController extends Controller
         $prices = Site::query()
             ->where('game_name', '=', $game->name)
             ->orderByDesc('created_at')
-            ->limit(count(SITES))
+            ->limit(count(config('site.sites')))
             ->get();
         $table = Site::query()
             ->where('game_name', '=', $game->name)
             ->orderByDesc('created_at')
+            ->limit(10)
             ->get();
         $nameForLink = getUrlName($game->name);
         return view('games.single', ['game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
@@ -54,11 +67,4 @@ class FrontController extends Controller
         return redirect(getFullAddress($siteName . $siteAttr['last_domen'] . $siteAttr['path'], getUrlName($gameName)));
     }
 
-//    public function main()
-//    {
-//        return view('gamecave.main');
-//    }
-//
-
-//
 }

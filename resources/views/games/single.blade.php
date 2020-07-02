@@ -43,28 +43,28 @@
             <table border="1">
                 <caption>Цены</caption>
                 <tr>
-{{--                @foreach($prices as $price)--}}
-{{--                    <tr>--}}
-{{--                        <th>Магазин</th>--}}
-{{--                        <th>Дата</th>--}}
-{{--                        <th>Цена</th>--}}
-{{--                    </tr>--}}
-{{--                    @foreach($table as $value)--}}
-{{--                        <td>--}}
-{{--                            <tr>--}}
-{{--                                <td>--}}
-{{--                                    {{ $price->name }}--}}
-{{--                                </td>--}}
-{{--                                <td>--}}
-{{--                            {{ $value->created_at }}--}}
-{{--                                </td>--}}
-{{--                                <td>--}}
-{{--                            {{ $value->price }}--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                        </td>--}}
-{{--                        @endforeach--}}
-{{--                        @endforeach--}}
+                @foreach($prices as $price)
+                    <tr>
+                        <th>Магазин</th>
+                        <th>Дата</th>
+                        <th>Цена</th>
+                    </tr>
+                    @foreach($table as $value)
+                        <td>
+                            <tr>
+                                <td>
+                                    {{ $price->name }}
+                                </td>
+                                <td>
+                            {{ $value->created_at }}
+                                </td>
+                                <td>
+                            {{ $value->price }}
+                                </td>
+                            </tr>
+                        </td>
+                        @endforeach
+                        @endforeach
                 </tr>
             </table>
 
