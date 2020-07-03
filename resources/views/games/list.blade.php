@@ -5,14 +5,14 @@
     <div class="container">
         <div class="page-path">
             <ul class="path-list">
-                <li><a href="index.html">Home</a></li>&nbsp;&nbsp;/&nbsp;&nbsp;
-                <li class="act">Games</li>
+                <li><a href="{{ route('home')}}">Главная</a></li>&nbsp;&nbsp;/&nbsp;&nbsp;
+                <li class="act">Игры</li>
             </ul>
-            <p><a href="{{ route('home')}}">Back to Home</a></p>
+            <p><a href="{{ route('home')}}">Вернуться на главную</a></p>
             <div class="clearfix"></div>
         </div>
         <h3 class="page-header">
-            List of Games Here
+            Список игр
         </h3>
         <div class="main">
             @foreach($games as $game)

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontController@main')->name('main');
+Route::get('/search', 'FrontController@search')->name('search');
 Route::get('/home', 'FrontController@home')->name('home');
 Route::get('/games', 'FrontController@gamesList')->name('games.list');
 Route::get('/game/{id}', 'FrontController@single')->name('game.single');

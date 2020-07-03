@@ -23,6 +23,16 @@ class AdminMiddleware1
      * @param  \Closure  $next
      * @return mixed
      */
+//    public function handle($request, Closure $next)
+//    {
+//        if (!Auth::guest() && Auth::user()->hasAdmin())
+//        {
+//            return $next($request);
+//        }
+//
+//        return $this->redirector->back($this->urlGenerator->route('main'));
+//    }
+
     public function handle($request, Closure $next)
     {
         if (!Auth::guest() && Auth::user()->hasAdmin())

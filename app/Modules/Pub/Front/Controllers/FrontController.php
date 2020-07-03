@@ -28,6 +28,13 @@ class FrontController extends Controller
         return view('home', ['userInf' => $user]);
     }
 
+    public function search()
+    {
+        $categories = Category::all();
+        $games = Game::query()->where('name', 'LIKE', 'remas')->paginate(3);
+        return view('games.list', ['games' => $games, 'categories' => $categories]);
+    }
+
     public function gamesList()
     {
         $categories = Category::all();
@@ -41,13 +48,14 @@ class FrontController extends Controller
         $category = Category::query()->find($id);
         $games = Game::query()
             ->where('category', '=', $category->name)
-            ->get();
+            ->paginate(3);
         return view('games.list', ['games' => $games, 'categories' => $categories]);
     }
 
     public function single($game)
     {
         //TODO: откорректировать
+        $categories = Category::all();
         $comments = Comment::all()->where('game_id', '=', $game);
         $game = Game::query()->find($game);
         $prices = Site::query()
@@ -61,7 +69,7 @@ class FrontController extends Controller
             ->limit(10)
             ->get();
         $nameForLink = getUrlName($game->name);
-        return view('games.single', ['game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
+        return view('games.single', ['categories' => $categories,'game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
     }
 
     public function link($siteName, $gameName)

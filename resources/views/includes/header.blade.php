@@ -94,10 +94,10 @@ Author URL: http://w3layouts.com
                     @endif
                 </li>
             </ul>
-            <div class="search-bar">
+            <form action="{{ route('search') }}" class="search-bar">
                 <input type="text" placeholder="Search" required="" />
                 <input type="submit" value="" />
-            </div>
+            </form>
             <div class="clearfix"></div>
             <script>
                 $( "span.menu" ).click(function() {
