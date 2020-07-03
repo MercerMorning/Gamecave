@@ -113,5 +113,6 @@
     <orderEntry type="module" module-name="gamecave" />
     <orderEntry type="module" module-name="gamestore" />
     <orderEntry type="module" module-name="Parsing" />
+    <orderEntry type="module" module-name="laraproj" />
   </component>
 </module>

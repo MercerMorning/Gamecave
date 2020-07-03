@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/../gamecave/.idea/gamecave.iml" filepath="$PROJECT_DIR$/../gamecave/.idea/gamecave.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/gamecave7.iml" filepath="$PROJECT_DIR$/.idea/gamecave7.iml" />
       <module fileurl="file://$PROJECT_DIR$/../gamestore/.idea/gamestore.iml" filepath="$PROJECT_DIR$/../gamestore/.idea/gamestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../laraproj/.idea/laraproj.iml" filepath="$PROJECT_DIR$/../laraproj/.idea/laraproj.iml" />
     </modules>
   </component>
 </project>

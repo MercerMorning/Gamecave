@@ -28,6 +28,7 @@
         </div>
         @include('includes.sidebar')
         <div class="clearfix"></div>
+        {{ $games->links() }}
     </div>
 </div>
 

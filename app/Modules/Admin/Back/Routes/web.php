@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', 'BackController@index')->name('admin.index');
 
     Route::get('/game/create', 'GameController@create')->name('admin.game.create');

@@ -7,7 +7,10 @@ use App\Comment;
 use App\Game;
 use App\Parsing;
 use App\Site;
+use App\User;
+use App\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\DomCrawler\AbstractUriElement;
 use Symfony\Component\DomCrawler\Crawler;
 use App\Http\Controllers\Controller;
@@ -21,13 +24,14 @@ class FrontController extends Controller
 
     public function home()
     {
-        return view('home');
+        $user = User::query()->where('id', '=', Auth::user()->id)->get();
+        return view('home', ['userInf' => $user]);
     }
 
     public function gamesList()
     {
         $categories = Category::all();
-        $games = Game::all();
+        $games = Game::paginate(3);
         return view('games.list', ['games' => $games, 'categories' => $categories]);
     }
 

@@ -15,6 +15,6 @@ Route::post('/game/comment/add/{id}', 'CommentController@add')->name('game.comme
 
 Route::get('/login', 'LoginController@create')->name('login');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
