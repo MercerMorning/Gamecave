@@ -39,7 +39,7 @@ class User extends Authenticatable implements  MustVerifyEmail
 
     public function hasAdmin()
     {
-        if (\Auth::user()->admin != 0) {
+        if (\Auth::user()->admin == 1) {
             return true;
         }
         return false;

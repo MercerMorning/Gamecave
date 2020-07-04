@@ -83,6 +83,7 @@ Author URL: http://w3layouts.com
                         <div class="authorization-block">
                             @auth
                                 <a href="{{ url('/home') }}" class="authorization-block__link">Личный кабинет</a>
+                                <a href="{{ route('logout') }}" class="authorization-block__link">Выйти</a>
                             @else
                                 <a href="{{ route('login') }}" class="authorization-block__link">Вход</a>
 

@@ -9,6 +9,7 @@ use App\Parsing;
 use App\Site;
 use App\User;
 use App\Users;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\DomCrawler\AbstractUriElement;

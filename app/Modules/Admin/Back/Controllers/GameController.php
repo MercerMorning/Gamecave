@@ -3,9 +3,9 @@
 namespace App\Modules\Admin\Back\Controllers;
 
 use App\Game;
-use App\Http\Requests\GameRequest;
-use App\Parsing;
+use App\Mail\FreshPrice;
 use App\Site;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,6 +23,7 @@ class GameController extends Controller
 
     function add(Request $request)
     {
+        $usersEmail = User::all();
         $sites = new SiteController();
         $sites->add($request);
         $game = new Game();
@@ -31,6 +32,14 @@ class GameController extends Controller
         $game->category = $request->category;
         $game->image = $request->file('image')->store('uploads', 'public');
         $game->save();
+        $prices = Site::query()
+            ->select()
+            ->orderByDesc('created_at')
+            ->limit(count(config('site.sites')))
+            ->get();
+        foreach ($usersEmail as $userEmail) {
+            \Mail::to($userEmail->email)->send(new FreshPrice(['game'=>$request->name, 'sites'=>$prices]));
+        }
         return redirect()->route('admin.index');
     }
 

@@ -7,6 +7,7 @@
             <ul class="path-list">
                 <li><a href="{{ route('home')}}">Главная</a></li>&nbsp;&nbsp;/&nbsp;&nbsp;
                 <li class="act">Игры</li>
+{{--                    {{ Breadcrumbs::render('games') }}--}}
             </ul>
             <p><a href="{{ route('home')}}">Вернуться на главную</a></p>
             <div class="clearfix"></div>
