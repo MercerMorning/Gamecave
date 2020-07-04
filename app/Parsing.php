@@ -146,7 +146,10 @@ class Parsing extends Model
                     }
                 }
                 $gameName = trim($altName) . ' ' . $gamePart;
-                return $gameName;
+                if ($gameName) {
+                    return $gameName;
+                }
+                return $game;
             }
         }
         if ($code == 'p01') {
@@ -161,7 +164,12 @@ class Parsing extends Model
                 }
             }
             $gameName = trim($altName) . ' ' . $gamePart;
-            return $gameName;
+            if ($gameName) {
+                return $gameName;
+            }
+            return $game;
         }
+
+        return $game;
     }
 }

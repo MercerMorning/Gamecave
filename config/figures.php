@@ -13,5 +13,10 @@ return [
         'g' => 'grand',
         't' => 'theft',
         'a' => 'auto',
+    ],
+    [
+        't' => 'the',
+        'e' => 'elder',
+        's' => 'scrolls',
     ]
 ];
