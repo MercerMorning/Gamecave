@@ -5,6 +5,7 @@ namespace App\Modules\Admin\Back\Controllers;
 use App\Category;
 use App\Game;
 use App\Mail\FreshPrice;
+use App\Parsing;
 use App\Site;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,14 +25,11 @@ class GameController extends Controller
 
     function add(Request $request)
     {
-//        $figures = config('figures.figures');
-//        $gamePart = preg_replace('~\D+~','', 'gta 3');
-//        if (array_key_exists($gamePart, $figures)) {
-//            $gamePart = $figures[$gamePart];
-//            $gameName = preg_replace('~\d+~','', 'gta 3');
-//            $gameName = $gameName . ' ' . $gamePart;
-//            return $gameName;
-//        }
+//        $status = Parsing::getStatus('gabestore', getUrlName($request->name),
+//            ['last_domen' => '.ru', 'path' => '/game/', 'price_block' => 'b-card__price-currentprice']
+//        );
+//        echo $gameName = Parsing::rename($status, $request->name)
+
         $m = getFullAddress('dfdf', 'witcher 3');
         $usersEmail = User::all();
         $sites = new SiteController();

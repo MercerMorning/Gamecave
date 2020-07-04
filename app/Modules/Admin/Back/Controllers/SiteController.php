@@ -16,6 +16,7 @@ class SiteController extends Controller
                 $site = new Site();
                 $site->name = $key;
                 $site->game_name = $request->name;
+                $site->status = Parsing::getStatus($key, getUrlName($request->name), $value);
                 $site->price = clearPrice(Parsing::getPrice($key, getUrlName($request->name), $value));
                 $site->save();
             }

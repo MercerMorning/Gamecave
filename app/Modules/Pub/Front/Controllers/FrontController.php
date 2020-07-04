@@ -5,6 +5,7 @@ namespace App\Modules\Pub\Front\Controllers;
 use App\Category;
 use App\Comment;
 use App\Game;
+use App\Parsing;
 use App\Site;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -66,8 +67,9 @@ class FrontController extends Controller
         return view('games.single', ['categories' => $categories,'game' => $game, 'prices' => $prices, 'nameForLink' => $nameForLink, 'comments' => $comments, 'table' => $table]);
     }
 
-    public function link($siteName, $gameName)
+    public function link($siteName, $gameName, $status)
     {
+        $gameName = Parsing::rename($status, $gameName);
         $sitesList = config('site.sites');
         $siteAttr = $sitesList[$siteName];
         return redirect(getFullAddress($siteName . $siteAttr['last_domen'] . $siteAttr['path'], getUrlName($gameName)));

@@ -7,5 +7,11 @@ return [
         3 => 'iii',
         4 => 'iv',
         5 => 'v',
+    ],
+
+    'letters' => [
+        'g' => 'grand',
+        't' => 'theft',
+        'a' => 'auto',
     ]
 ];

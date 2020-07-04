@@ -26,7 +26,7 @@
                 <ul>
                     @foreach($prices as $price)
                         <li>
-                            <a href="{{ route('game.link', ['site' => $price->name, 'game' => $price->game_name]) }}">
+                            <a href="{{ route('game.link', ['site' => $price->name, 'game' => $price->game_name, 'status' => $price->status]) }}">
                                 {{ $price->name }}
                             </a>
                             @if ($price->price == 0)
