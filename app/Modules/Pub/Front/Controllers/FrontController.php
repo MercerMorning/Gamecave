@@ -5,15 +5,9 @@ namespace App\Modules\Pub\Front\Controllers;
 use App\Category;
 use App\Comment;
 use App\Game;
-use App\Parsing;
 use App\Site;
 use App\User;
-use App\Users;
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\DomCrawler\AbstractUriElement;
-use Symfony\Component\DomCrawler\Crawler;
 use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
@@ -55,7 +49,6 @@ class FrontController extends Controller
 
     public function single($game)
     {
-        //TODO: откорректировать
         $categories = Category::all();
         $comments = Comment::all()->where('game_id', '=', $game);
         $game = Game::query()->find($game);

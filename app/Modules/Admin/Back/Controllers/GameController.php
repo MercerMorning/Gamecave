@@ -2,6 +2,7 @@
 
 namespace App\Modules\Admin\Back\Controllers;
 
+use App\Category;
 use App\Game;
 use App\Mail\FreshPrice;
 use App\Site;
@@ -23,12 +24,29 @@ class GameController extends Controller
 
     function add(Request $request)
     {
+//        $figures = config('figures.figures');
+//        $gamePart = preg_replace('~\D+~','', 'gta 3');
+//        if (array_key_exists($gamePart, $figures)) {
+//            $gamePart = $figures[$gamePart];
+//            $gameName = preg_replace('~\d+~','', 'gta 3');
+//            $gameName = $gameName . ' ' . $gamePart;
+//            return $gameName;
+//        }
+        $m = getFullAddress('dfdf', 'witcher 3');
         $usersEmail = User::all();
         $sites = new SiteController();
+        $hasCategory = Category::query()
+            ->select('name')
+            ->where('name', '=', $request->category)
+            ->get()
+            ->toArray();
         $sites->add($request);
         $game = new Game();
         $game->name = $request->name;
         $game->description = $request->description;
+        if (empty($hasCategory)) {
+            return 'нет такой категории';
+        }
         $game->category = $request->category;
         $game->image = $request->file('image')->store('uploads', 'public');
         $game->save();

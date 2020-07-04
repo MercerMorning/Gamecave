@@ -3,8 +3,6 @@
 namespace  App\Modules\Pub\Front\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LogoutController extends Controller
 {
@@ -21,6 +19,17 @@ class LogoutController extends Controller
 
     public function index()
     {
-        var_dump($_POST);
+        var_dump(session()->all());
+
+        function delete($sessionData){
+            foreach ($sessionData as $data => $inf) {
+                if (is_array($data)) {
+                    delete($data);
+                }
+                session()->pull($data, $inf);
+            }
+        }
+        $sessionData = session()->all();
+        delete($sessionData);
     }
 }

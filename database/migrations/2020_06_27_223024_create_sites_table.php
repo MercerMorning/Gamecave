@@ -18,6 +18,7 @@ class CreateSitesTable extends Migration
             $table->string('site_name');
             $table->string('game_name');
             $table->integer('price');
+            $table->integer('status');
             $table->timestamps();
         });
     }
