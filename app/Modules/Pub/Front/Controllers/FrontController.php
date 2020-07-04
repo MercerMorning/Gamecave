@@ -8,6 +8,7 @@ use App\Game;
 use App\Parsing;
 use App\Site;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
@@ -24,10 +25,11 @@ class FrontController extends Controller
         return view('home', ['userInf' => $user]);
     }
 
-    public function search()
+    public function search(Request $request)
     {
+        $search = $request->search;
         $categories = Category::all();
-        $games = Game::query()->where('name', 'LIKE', 'remas')->paginate(3);
+        $games = Game::query()->where('name', 'like', '%' . $search .'%')->paginate(3);
         return view('games.list', ['games' => $games, 'categories' => $categories]);
     }
 
@@ -69,7 +71,7 @@ class FrontController extends Controller
 
     public function link($siteName, $gameName, $status)
     {
-        $gameName = Parsing::rename($status, $gameName);
+        $gameName = Parsing::getName($status, $gameName);
         $sitesList = config('site.sites');
         $siteAttr = $sitesList[$siteName];
         return redirect(getFullAddress($siteName . $siteAttr['last_domen'] . $siteAttr['path'], getUrlName($gameName)));

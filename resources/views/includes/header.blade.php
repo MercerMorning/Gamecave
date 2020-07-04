@@ -95,8 +95,9 @@ Author URL: http://w3layouts.com
                     @endif
                 </li>
             </ul>
-            <form action="{{ route('search') }}" class="search-bar">
-                <input type="text" placeholder="Search" required="" />
+            <form action="{{ route('search') }}" class="search-bar" method="post">
+                {{ csrf_field() }}
+                <input name="search" type="text" placeholder="Search" required="" />
                 <input type="submit" value="" />
             </form>
             <div class="clearfix"></div>
