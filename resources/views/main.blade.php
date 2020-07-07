@@ -112,6 +112,13 @@
 <div class="what-new">
     <div class="container">
         <h3>What's new</h3>
+        <div id="vk_post_-93893399_383876"></div>
+        <script type="text/javascript">
+            (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "https://vk.com/js/api/openapi.js?168"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'vk_openapi_js'));
+            (function() {
+                if (!window.VK || !VK.Widgets || !VK.Widgets.Post || !VK.Widgets.Post('vk_post_-93893399_383876', -93893399, 383876, 'XC0Bnxws4ZsEuAE3OrczXy6MPZur')) setTimeout(arguments.callee, 50);
+            }());
+        </script>
         <div class="blog-news">
             <div class="blog-news-grid">
                 <div class="news-grid-left">

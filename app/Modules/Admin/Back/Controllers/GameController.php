@@ -46,7 +46,7 @@ class GameController extends Controller
             return 'нет такой категории';
         }
         $game->category = $request->category;
-        $game->image = $request->file('image')->store('uploads', 'public');
+        $game->image = $request->file('image')->store('uploads', 'www');
         $game->save();
         $prices = Site::query()
             ->select()

@@ -37,7 +37,7 @@ class GameController extends Controller
         $game->price = $request->price;
         $game->description = $request->description;
         $game->category = $request->category;
-        $game->image = $request->file('image')->store('uploads', 'public');
+        $game->image = $request->file('image')->store('uploads', 'www');
         $game->save();
         return redirect()->route('admin.list');
     }
@@ -47,7 +47,7 @@ class GameController extends Controller
         $game = Game::query()->find($request->id);
         $game->name = $request->name;
         $game->price = $request->price;
-        //$game->image = $request->file('image')->store('uploads', 'public');
+        //$game->image = $request->file('image')->store('uploads', 'www');
         //$game->description = $request->description;
         $game->category = $request->category;
         $game->save();

@@ -23,7 +23,7 @@ class AdminMiddleware1
      * @param  \Closure  $next
      * @return mixed
      */
-//    public function handle($request, Closure $next)
+//    www function handle($request, Closure $next)
 //    {
 //        if (!Auth::guest() && Auth::user()->hasAdmin())
 //        {

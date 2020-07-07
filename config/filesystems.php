@@ -48,11 +48,11 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'public' => [
+        'www' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/www'),
             'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
+            'visibility' => 'www',
         ],
 
         's3' => [
@@ -79,7 +79,7 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+        public_path('storage') => storage_path('app/www'),
     ],
 
 ];

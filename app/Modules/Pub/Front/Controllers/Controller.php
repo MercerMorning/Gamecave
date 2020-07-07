@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-//    public function __construct()
+//    www function __construct()
 //    {
 //        $this->breadcrumbs = new \Creitive\Breadcrumbs\Breadcrumbs;
 //
